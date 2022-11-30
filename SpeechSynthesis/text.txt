@@ -1,3 +1,4 @@
+
 {"name":"Alex","lang":"en-US","localService":true,"default":true}
 {"name":"Alice","lang":"it-IT","localService":true,"default":false}
 {"name":"Alva","lang":"sv-SE","localService":true,"default":false}
@@ -8,7 +9,7 @@
 {"name":"Daniel","lang":"en-GB","localService":true,"default":false}
 {"name":"Diego","lang":"es-AR","localService":true,"default":false}
 {"name":"Ellen","lang":"nl-BE","localService":true,"default":false}
-{"name":"Fiona","lang":"en","localService":true,"default":false}
+{"name":"Fiona","lang":"en-scotland","localService":true,"default":false}
 {"name":"Fred","lang":"en-US","localService":true,"default":false}
 {"name":"Ioana","lang":"ro-RO","localService":true,"default":false}
 {"name":"Joana","lang":"pt-PT","localService":true,"default":false}
@@ -46,22 +47,3 @@
 {"name":"Yuri","lang":"ru-RU","localService":true,"default":false}
 {"name":"Zosia","lang":"pl-PL","localService":true,"default":false}
 {"name":"Zuzana","lang":"cs-CZ","localService":true,"default":false}
-{"name":"Google Deutsch","lang":"de-DE","localService":false,"default":false}
-{"name":"Google US English","lang":"en-US","localService":false,"default":false}
-{"name":"Google UK English Female","lang":"en-GB","localService":false,"default":false}
-{"name":"Google UK English Male","lang":"en-GB","localService":false,"default":false}
-{"name":"Google español","lang":"es-ES","localService":false,"default":false}
-{"name":"Google español de Estados Unidos","lang":"es-US","localService":false,"default":false}
-{"name":"Google français","lang":"fr-FR","localService":false,"default":false}
-{"name":"Google हिन्दी","lang":"hi-IN","localService":false,"default":false}
-{"name":"Google Bahasa Indonesia","lang":"id-ID","localService":false,"default":false}
-{"name":"Google italiano","lang":"it-IT","localService":false,"default":false}
-{"name":"Google 日本語","lang":"ja-JP","localService":false,"default":false}
-{"name":"Google 한국의","lang":"ko-KR","localService":false,"default":false}
-{"name":"Google Nederlands","lang":"nl-NL","localService":false,"default":false}
-{"name":"Google polski","lang":"pl-PL","localService":false,"default":false}
-{"name":"Google português do Brasil","lang":"pt-BR","localService":false,"default":false}
-{"name":"Google русский","lang":"ru-RU","localService":false,"default":false}
-{"name":"Google 普通话（中国大陆）","lang":"zh-CN","localService":false,"default":false}
-{"name":"Google 粤語（香港）","lang":"zh-HK","localService":false,"default":false}
-{"name":"Google 國語（臺灣）","lang":"zh-TW","localService":false,"default":false}
