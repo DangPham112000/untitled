@@ -11,11 +11,20 @@
         <button onclick="getFonts()">GET FONT</button>
         <br />
         <br />
-        <button onclick="save()">SAVE</button>
-        <br />
-        <br />
         <span>Amount: </span>
         <span id="amount"></span>
-        <script src="js.js"></script>
+        <div id="fonts"></div>
+        <script>
+            function getFonts() {
+                window.queryLocalFonts().then((availableFonts) => {
+                    var fonts = availableFonts.map((font) => font.fullName);
+                    document.querySelector("#amount").innerHTML =
+                        availableFonts.length;
+                    console.log(fonts.join("\n"));
+                    document.getElementById("fonts").innerHTML =
+                        fonts.join("<br/>");
+                });
+            }
+        </script>
     </body>
 </html>
