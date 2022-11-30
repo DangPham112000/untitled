@@ -33,11 +33,17 @@
                     voicesListHTML;
             }
 
+            // FIREFOX
+            populateVoiceList();
+
             if (
                 typeof speechSynthesis !== "undefined" &&
                 speechSynthesis.onvoiceschanged !== undefined
             ) {
                 speechSynthesis.onvoiceschanged = populateVoiceList;
+            } else {
+                document.getElementById("voiceslist").innerHTML =
+                    "DOES NOT SUPPORT onvoiceschanged";
             }
         </script>
     </body>
