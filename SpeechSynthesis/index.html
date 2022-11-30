@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>SpeechSynthesis</h1>
+        <div id="voiceslist"></div>
+        <script>
+            function populateVoiceList() {
+                if (typeof speechSynthesis === "undefined") {
+                    return;
+                }
+
+                let voicesList = [];
+
+                voicesList = window.speechSynthesis.getVoices();
+
+                let voicesListHTML = voicesList
+                    .map((voice) => {
+                        return JSON.stringify({
+                            name: voice.name,
+                            lang: voice.lang,
+                            localService: voice.localService,
+                            default: voice.default,
+                        });
+                    })
+                    .join("<br/>");
+                console.log(voicesList);
+                document.getElementById("voiceslist").innerHTML =
+                    voicesListHTML;
+            }
+
+            if (
+                typeof speechSynthesis !== "undefined" &&
+                speechSynthesis.onvoiceschanged !== undefined
+            ) {
+                speechSynthesis.onvoiceschanged = populateVoiceList;
+            }
+        </script>
+    </body>
+</html>

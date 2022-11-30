@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <h1>MAIN</h1>
+        <meta
+            http-equiv="Content-Type"
+            content="text/html; charset=ISO-8859-1"
+        />
+        <!-- <script type="text/javascript" src="jquery-1.7.2-min.js"></script> -->
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js"
+            integrity="sha512-poSrvjfoBHxVw5Q2awEsya5daC0p00C8SKN74aVJrs7XLeZAi+3+13ahRhHm8zdAFbI2+/SUIrKYLvGBJf9H3A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var isAccessible = null;
+            function success() {
+                console.log("success");
+            }
+            function failure() {
+                console.log("failure");
+            }
+            function checkConnection() {
+                var url = "http://101.212.33.60:1935/test/hello.html";
+                $.ajax({
+                    url: url,
+                    type: "get",
+                    cache: false,
+                    dataType: "jsonp", // it is for supporting crossdomain
+                    crossDomain: true,
+                    asynchronous: false,
+                    jsonpCallback: "deadCode",
+                    timeout: 1500, // set a timeout in milliseconds
+                    complete: function (xhr, responseText, thrownError) {
+                        if (xhr.status == "200") {
+                            isAccessible = true;
+                            success(); // yes response came, esecute success()
+                        } else {
+                            isAccessible = false;
+                            failure(); // this will be executed after the request gets timed out due to blockage of ports/connections/IPs
+                        }
+                    },
+                });
+            }
+            $(document).ready(function () {
+                checkConnection(); // here I invoke the checking function
+            });
+        </script>
+    </body>
+</html>
