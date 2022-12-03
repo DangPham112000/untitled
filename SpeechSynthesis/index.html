@@ -9,6 +9,9 @@
     <body>
         <div id="voiceslist"></div>
         <script>
+            var startts = new Date().getTime(),
+                endts,
+                durationGetVoices;
             function populateVoiceList() {
                 if (typeof speechSynthesis === "undefined") {
                     return;
@@ -28,16 +31,26 @@
                         });
                     })
                     .join("<br/>");
-                console.log(voicesList);
                 document.getElementById("voiceslist").innerHTML =
                     voicesListHTML;
+                if (voicesList.length !== 0) {
+                    endts = new Date().getTime();
+                    durationGetVoices = endts - startts;
+                    console.log("durationGetVoices: ", durationGetVoices);
+                }
             }
+
+            // FIREFOX
+            populateVoiceList();
 
             if (
                 typeof speechSynthesis !== "undefined" &&
                 speechSynthesis.onvoiceschanged !== undefined
             ) {
                 speechSynthesis.onvoiceschanged = populateVoiceList;
+            } else {
+                document.getElementById("voiceslist").innerHTML =
+                    "DOES NOT SUPPORT onvoiceschanged";
             }
         </script>
     </body>
