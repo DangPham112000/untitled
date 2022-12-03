@@ -1,57 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body>
-        <div id="voiceslist"></div>
-        <script>
-            var startts = new Date().getTime(),
-                endts,
-                durationGetVoices;
-            function populateVoiceList() {
-                if (typeof speechSynthesis === "undefined") {
-                    return;
-                }
 
-                let voicesList = [];
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
 
-                voicesList = window.speechSynthesis.getVoices();
-
-                let voicesListHTML = voicesList
-                    .map((voice) => {
-                        return JSON.stringify({
-                            name: voice.name,
-                            lang: voice.lang,
-                            localService: voice.localService,
-                            default: voice.default,
-                        });
-                    })
-                    .join("<br/>");
-                document.getElementById("voiceslist").innerHTML =
-                    voicesListHTML;
-                if (voicesList.length !== 0) {
-                    endts = new Date().getTime();
-                    durationGetVoices = endts - startts;
-                    console.log("durationGetVoices: ", durationGetVoices);
-                }
+<body>
+    <div id="voiceslist"></div>
+    <script>
+        var startts = new Date().getTime(),
+            endts,
+            durationGetVoices;
+        function populateVoiceList() {
+            if (typeof speechSynthesis === "undefined") {
+                return;
             }
 
-            // FIREFOX
-            populateVoiceList();
+            let voicesList = [];
 
-            if (
-                typeof speechSynthesis !== "undefined" &&
-                speechSynthesis.onvoiceschanged !== undefined
-            ) {
-                speechSynthesis.onvoiceschanged = populateVoiceList;
-            } else {
-                document.getElementById("voiceslist").innerHTML =
-                    "DOES NOT SUPPORT onvoiceschanged";
+            voicesList = window.speechSynthesis.getVoices();
+
+            let voicesListHTML = voicesList
+                .map((voice) => {
+                    return JSON.stringify({
+                        voiceURI: voice.voiceURI,
+                        name: voice.name,
+                        lang: voice.lang,
+                        localService: voice.localService,
+                        default: voice.default,
+                    });
+                })
+                .join("<br/>");
+            document.getElementById("voiceslist").innerHTML =
+                voicesListHTML;
+            if (voicesList.length !== 0) {
+                endts = new Date().getTime();
+                durationGetVoices = endts - startts;
+                console.log("durationGetVoices: ", durationGetVoices);
             }
-        </script>
-    </body>
+        }
+
+        // FIREFOX
+        populateVoiceList();
+
+        if (
+            typeof speechSynthesis !== "undefined" &&
+            speechSynthesis.onvoiceschanged !== undefined
+        ) {
+            speechSynthesis.onvoiceschanged = populateVoiceList;
+        } else {
+            document.getElementById("voiceslist").innerHTML =
+                "DOES NOT SUPPORT onvoiceschanged";
+        }
+    </script>
+</body>
+
 </html>
