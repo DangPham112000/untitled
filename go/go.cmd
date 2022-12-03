@@ -24,7 +24,9 @@ go test
 // Executable generates a file that we can run
 // Reusable: Code used as 'helpers'. Good place to put reusable logic
 
-// Package main -> run go build -> main.exe (Executable package)
-// Package blahblah -> run go build -> nothing! (Reusable package)
+// package main -> run go build -> main.exe (Executable package)
+// must define a function named main, which is run auto when the program runs 
+// package blahblah -> run go build -> nothing! (Reusable package)
+// saying package blahblah means this file is a part of package blahblah
 
 // saying import, we can import standard package like fmt or reusable package make by other engineer
