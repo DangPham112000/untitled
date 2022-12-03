@@ -1,0 +1,67 @@
+{"name":"Alex","lang":"en-US","localService":true,"default":true}
+{"name":"Alice","lang":"it-IT","localService":true,"default":false}
+{"name":"Alva","lang":"sv-SE","localService":true,"default":false}
+{"name":"Amelie","lang":"fr-CA","localService":true,"default":false}
+{"name":"Anna","lang":"de-DE","localService":true,"default":false}
+{"name":"Carmit","lang":"he-IL","localService":true,"default":false}
+{"name":"Damayanti","lang":"id-ID","localService":true,"default":false}
+{"name":"Daniel","lang":"en-GB","localService":true,"default":false}
+{"name":"Diego","lang":"es-AR","localService":true,"default":false}
+{"name":"Ellen","lang":"nl-BE","localService":true,"default":false}
+{"name":"Fiona","lang":"en","localService":true,"default":false}
+{"name":"Fred","lang":"en-US","localService":true,"default":false}
+{"name":"Ioana","lang":"ro-RO","localService":true,"default":false}
+{"name":"Joana","lang":"pt-PT","localService":true,"default":false}
+{"name":"Jorge","lang":"es-ES","localService":true,"default":false}
+{"name":"Juan","lang":"es-MX","localService":true,"default":false}
+{"name":"Kanya","lang":"th-TH","localService":true,"default":false}
+{"name":"Karen","lang":"en-AU","localService":true,"default":false}
+{"name":"Kyoko","lang":"ja-JP","localService":true,"default":false}
+{"name":"Laura","lang":"sk-SK","localService":true,"default":false}
+{"name":"Lekha","lang":"hi-IN","localService":true,"default":false}
+{"name":"Luca","lang":"it-IT","localService":true,"default":false}
+{"name":"Luciana","lang":"pt-BR","localService":true,"default":false}
+{"name":"Maged","lang":"ar-SA","localService":true,"default":false}
+{"name":"Mariska","lang":"hu-HU","localService":true,"default":false}
+{"name":"Mei-Jia","lang":"zh-TW","localService":true,"default":false}
+{"name":"Melina","lang":"el-GR","localService":true,"default":false}
+{"name":"Milena","lang":"ru-RU","localService":true,"default":false}
+{"name":"Moira","lang":"en-IE","localService":true,"default":false}
+{"name":"Monica","lang":"es-ES","localService":true,"default":false}
+{"name":"Nora","lang":"nb-NO","localService":true,"default":false}
+{"name":"Paulina","lang":"es-MX","localService":true,"default":false}
+{"name":"Rishi","lang":"en-IN","localService":true,"default":false}
+{"name":"Samantha","lang":"en-US","localService":true,"default":false}
+{"name":"Sara","lang":"da-DK","localService":true,"default":false}
+{"name":"Satu","lang":"fi-FI","localService":true,"default":false}
+{"name":"Sin-ji","lang":"zh-HK","localService":true,"default":false}
+{"name":"Tessa","lang":"en-ZA","localService":true,"default":false}
+{"name":"Thomas","lang":"fr-FR","localService":true,"default":false}
+{"name":"Ting-Ting","lang":"zh-CN","localService":true,"default":false}
+{"name":"Veena","lang":"en-IN","localService":true,"default":false}
+{"name":"Victoria","lang":"en-US","localService":true,"default":false}
+{"name":"Xander","lang":"nl-NL","localService":true,"default":false}
+{"name":"Yelda","lang":"tr-TR","localService":true,"default":false}
+{"name":"Yuna","lang":"ko-KR","localService":true,"default":false}
+{"name":"Yuri","lang":"ru-RU","localService":true,"default":false}
+{"name":"Zosia","lang":"pl-PL","localService":true,"default":false}
+{"name":"Zuzana","lang":"cs-CZ","localService":true,"default":false}
+{"name":"Google Deutsch","lang":"de-DE","localService":false,"default":false}
+{"name":"Google US English","lang":"en-US","localService":false,"default":false}
+{"name":"Google UK English Female","lang":"en-GB","localService":false,"default":false}
+{"name":"Google UK English Male","lang":"en-GB","localService":false,"default":false}
+{"name":"Google español","lang":"es-ES","localService":false,"default":false}
+{"name":"Google español de Estados Unidos","lang":"es-US","localService":false,"default":false}
+{"name":"Google français","lang":"fr-FR","localService":false,"default":false}
+{"name":"Google हिन्दी","lang":"hi-IN","localService":false,"default":false}
+{"name":"Google Bahasa Indonesia","lang":"id-ID","localService":false,"default":false}
+{"name":"Google italiano","lang":"it-IT","localService":false,"default":false}
+{"name":"Google 日本語","lang":"ja-JP","localService":false,"default":false}
+{"name":"Google 한국의","lang":"ko-KR","localService":false,"default":false}
+{"name":"Google Nederlands","lang":"nl-NL","localService":false,"default":false}
+{"name":"Google polski","lang":"pl-PL","localService":false,"default":false}
+{"name":"Google português do Brasil","lang":"pt-BR","localService":false,"default":false}
+{"name":"Google русский","lang":"ru-RU","localService":false,"default":false}
+{"name":"Google 普通话（中国大陆）","lang":"zh-CN","localService":false,"default":false}
+{"name":"Google 粤語（香港）","lang":"zh-HK","localService":false,"default":false}
+{"name":"Google 國語（臺灣）","lang":"zh-TW","localService":false,"default":false}
