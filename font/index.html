@@ -1,71 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Fonts</title>
-    </head>
-    <body>
-        <h1>FONTS</h1>
-        <button onclick="getFonts()">GET FONT</button>
-        <button id="create">DOWNLOAD</button>
-        <br />
-        <br />
-        <span>Amount: </span>
-        <span id="amount"></span>
-        <br />
-        <br />
-        <textarea id="textbox" rows="40" cols="50"></textarea>
-        <div id="fonts"></div>
-        <script>
-            function getFonts() {
-                window.queryLocalFonts().then((availableFonts) => {
-                    var fonts = availableFonts.map((font) => font.fullName);
-                    document.querySelector("#amount").innerHTML =
-                        availableFonts.length;
-                    // console.log(fonts.join("\n"));
-                    document.getElementById("textbox").value = fonts.join("\n");
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fonts</title>
+</head>
+
+<body>
+    <h1>FONTS</h1>
+    <button onclick="getFonts()">GET FONT</button>
+    <button id="create">DOWNLOAD</button>
+    <br />
+    <br />
+    <span>Amount: </span>
+    <span id="amount"></span>
+    <br />
+    <br />
+    <textarea id="textbox" rows="40" cols="50"></textarea>
+    <script>
+        function getFonts() {
+            window.queryLocalFonts().then((availableFonts) => {
+                var fonts = availableFonts.map((font) => font.fullName);
+                document.querySelector("#amount").innerHTML =
+                    availableFonts.length;
+                // console.log(fonts.join("\n"));
+                document.getElementById("textbox").value = fonts.join("\n");
+            });
+        }
+
+        var textFile = null,
+            makeTextFile = function (text) {
+                var data = new Blob([text], { type: "text/plain" });
+
+                // If we are replacing a previously generated file we need to
+                // manually revoke the object URL to avoid memory leaks.
+                if (textFile !== null) {
+                    window.URL.revokeObjectURL(textFile);
+                }
+
+                textFile = window.URL.createObjectURL(data);
+
+                // returns a URL you can use as a href
+                return textFile;
+            };
+
+        var create = document.getElementById("create"),
+            textbox = document.getElementById("textbox");
+
+        create.addEventListener(
+            "click",
+            function () {
+                var link = document.createElement("a");
+                link.setAttribute("download", "text.txt");
+                link.href = makeTextFile(textbox.value);
+                console.log(link.href);
+                document.body.appendChild(link);
+
+                // wait for the link to be added to the document
+                window.requestAnimationFrame(function () {
+                    var event = new MouseEvent("click");
+                    link.dispatchEvent(event);
+                    document.body.removeChild(link);
                 });
-            }
+            },
+            false
+        );
+    </script>
+</body>
 
-            var textFile = null,
-                makeTextFile = function (text) {
-                    var data = new Blob([text], { type: "text/plain" });
-
-                    // If we are replacing a previously generated file we need to
-                    // manually revoke the object URL to avoid memory leaks.
-                    if (textFile !== null) {
-                        window.URL.revokeObjectURL(textFile);
-                    }
-
-                    textFile = window.URL.createObjectURL(data);
-
-                    // returns a URL you can use as a href
-                    return textFile;
-                };
-
-            var create = document.getElementById("create"),
-                textbox = document.getElementById("textbox");
-
-            create.addEventListener(
-                "click",
-                function () {
-                    var link = document.createElement("a");
-                    link.setAttribute("download", "text.txt");
-                    link.href = makeTextFile(textbox.value);
-                    console.log(link.href);
-                    document.body.appendChild(link);
-
-                    // wait for the link to be added to the document
-                    window.requestAnimationFrame(function () {
-                        var event = new MouseEvent("click");
-                        link.dispatchEvent(event);
-                        document.body.removeChild(link);
-                    });
-                },
-                false
-            );
-        </script>
-    </body>
 </html>
