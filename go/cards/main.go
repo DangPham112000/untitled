@@ -1,18 +1,16 @@
-// package main
-
-// import "fmt"
-
-// func main() {
-// 	card := newCard()
-// 	fmt.Print(card)
-// }
-
-// func newCard() string {
-// 	return "Ace of Spades"
-// }
-
 package main
 
+import "fmt"
+
 func main() {
-	printState()
+	cards := []string{"Ace of Diamonds", newCard()}
+	cards = append(cards, "Six of Spades")
+
+	for i, card := range cards {
+		fmt.Println(i, card)
+	}
+}
+
+func newCard() string {
+	return "Ace of Spades"
 }
