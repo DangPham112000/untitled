@@ -1,112 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SpeechSynthesis</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SpeechSynthesis</title>
-</head>
-
-<body>
-    <h1>SpeechSynthesis</h1>
-    <button id="create">DOWNLOAD</button>
-    <br />
-    <br />
-    <span>Amount: </span>
-    <span id="amount"></span>
-    <br />
-    <span>Duration: </span>
-    <span id="duration"></span>
-    <br />
-    <br />
-    <textarea id="textbox" rows="30" cols="170"></textarea>
-    <div id="voiceslist"></div>
-    <script>
-        var startts = new Date().getTime(),
-            endts,
-            durationGetVoices;
-        function populateVoiceList() {
-            if (typeof speechSynthesis === "undefined") {
-                return;
-            }
-
-            let voicesList = [];
-
-            voicesList = window.speechSynthesis.getVoices();
-
-            document.getElementById("amount").innerHTML = voicesList.length;
-            let voicesListString = voicesList
-                .map((voice) => {
-                    return JSON.stringify({
-                        voiceURI: voice.voiceURI,
-                        name: voice.name,
-                        lang: voice.lang,
-                        localService: voice.localService,
-                        default: voice.default,
-                    });
-                })
-                .join("\n");
-            document.getElementById("textbox").innerHTML =
-                voicesListString;
-            if (voicesList.length !== 0) {
-                endts = new Date().getTime();
-                durationGetVoices = endts - startts;
-                console.log("durationGetVoices: ", durationGetVoices);
-                document.getElementById("duration").innerHTML = durationGetVoices;
-            }
-        }
-
-        // FIREFOX
-        populateVoiceList();
-
-        if (
-            typeof speechSynthesis !== "undefined" &&
-            speechSynthesis.onvoiceschanged !== undefined
-        ) {
-            speechSynthesis.onvoiceschanged = populateVoiceList;
-        } else {
-            document.getElementById("voiceslist").innerHTML =
-                "DOES NOT SUPPORT onvoiceschanged";
-        }
-
-        var textFile = null,
-            makeTextFile = function (text) {
-                var data = new Blob([text], { type: "text/plain" });
-
-                // If we are replacing a previously generated file we need to
-                // manually revoke the object URL to avoid memory leaks.
-                if (textFile !== null) {
-                    window.URL.revokeObjectURL(textFile);
+    <body>
+        <h1>SpeechSynthesis</h1>
+        <button id="create">DOWNLOAD</button>
+        <br />
+        <br />
+        <span>Amount: </span>
+        <span id="amount"></span>
+        <br />
+        <span>Duration: </span>
+        <span id="duration"></span>
+        <br />
+        <br />
+        <textarea id="textbox" rows="30" cols="170"></textarea>
+        <div id="voiceslist"></div>
+        <script>
+            var startts = new Date().getTime(),
+                endts,
+                durationGetVoices;
+            function populateVoiceList() {
+                if (typeof speechSynthesis === "undefined") {
+                    return;
                 }
 
-                textFile = window.URL.createObjectURL(data);
+                let voicesList = [];
 
-                // returns a URL you can use as a href
-                return textFile;
-            };
+                voicesList = window.speechSynthesis.getVoices();
 
-        var create = document.getElementById("create"),
-            textbox = document.getElementById("textbox");
+                document.getElementById("amount").innerHTML = voicesList.length;
+                let voicesListString = voicesList
+                    .map((voice) => {
+                        return JSON.stringify({
+                            voiceURI: voice.voiceURI,
+                            name: voice.name,
+                            lang: voice.lang,
+                            localService: voice.localService,
+                            default: voice.default,
+                        });
+                    })
+                    .join("\n");
+                document.getElementById("textbox").innerHTML = voicesListString;
+                if (voicesList.length !== 0) {
+                    endts = new Date().getTime();
+                    durationGetVoices = endts - startts;
+                    console.log("durationGetVoices: ", durationGetVoices);
+                    document.getElementById("duration").innerHTML =
+                        durationGetVoices;
+                }
+            }
 
-        create.addEventListener(
-            "click",
-            function () {
-                var link = document.createElement("a");
-                link.setAttribute("download", "text.txt");
-                link.href = makeTextFile(textbox.value);
-                document.body.appendChild(link);
+            // FIREFOX
+            populateVoiceList();
 
-                // wait for the link to be added to the document
-                window.requestAnimationFrame(function () {
-                    var event = new MouseEvent("click");
-                    link.dispatchEvent(event);
-                    document.body.removeChild(link);
-                });
-            },
-            false
-        );
-    </script>
-</body>
+            if (
+                typeof speechSynthesis !== "undefined" &&
+                speechSynthesis.onvoiceschanged !== undefined
+            ) {
+                speechSynthesis.onvoiceschanged = populateVoiceList;
+            } else {
+                if (typeof speechSynthesis === "undefined") {
+                    document.getElementById("voiceslist").innerHTML =
+                        "DOES NOT SUPPORT speechSynthesis";
+                } else if (speechSynthesis.onvoiceschanged === undefined) {
+                    document.getElementById("voiceslist").innerHTML =
+                        "DOES NOT SUPPORT onvoiceschanged";
+                } else {
+                    document.getElementById("voiceslist").innerHTML = "Dunno";
+                }
+            }
 
+            var textFile = null,
+                makeTextFile = function (text) {
+                    var data = new Blob([text], { type: "text/plain" });
+
+                    // If we are replacing a previously generated file we need to
+                    // manually revoke the object URL to avoid memory leaks.
+                    if (textFile !== null) {
+                        window.URL.revokeObjectURL(textFile);
+                    }
+
+                    textFile = window.URL.createObjectURL(data);
+
+                    // returns a URL you can use as a href
+                    return textFile;
+                };
+
+            var create = document.getElementById("create"),
+                textbox = document.getElementById("textbox");
+
+            create.addEventListener(
+                "click",
+                function () {
+                    var link = document.createElement("a");
+                    link.setAttribute("download", "text.txt");
+                    link.href = makeTextFile(textbox.value);
+                    document.body.appendChild(link);
+
+                    // wait for the link to be added to the document
+                    window.requestAnimationFrame(function () {
+                        var event = new MouseEvent("click");
+                        link.dispatchEvent(event);
+                        document.body.removeChild(link);
+                    });
+                },
+                false
+            );
+        </script>
+    </body>
 </html>
