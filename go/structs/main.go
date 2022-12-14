@@ -23,8 +23,10 @@ func main() {
 		},
 	}
 
-	danhPointer := &danh
-	danhPointer.updateName("Danhe")
+	// danhPointer := &danh
+	// danhPointer.updateName("Danheeeee")
+	// (&danh).updateName("Danheeeee&")
+	danh.updateName("Danheeeeeh")
 	danh.print()
 }
 
