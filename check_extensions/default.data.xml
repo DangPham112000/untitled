@@ -1,0 +1,167 @@
+<browser_mark>
+    <uuid>DB914BB8-425E-4094-B53A-D55622014C29</uuid>
+    <tabs>
+        <tab active="1" current="1">36713375-1666-4D0E-8ABC-2E03DE30723D</tab>
+    </tabs>
+    <architecture bit="64">x86</architecture>
+    <brands>
+        <brand version="8" full_version="8.0.0.0">Not?A_Brand</brand>
+        <brand version="108" full_version="108.0.5359.124">Chromium</brand>
+        <brand version="108" full_version="108.0.5359.124">Google Chrome</brand>
+    </brands>
+    <mobile>false</mobile>
+    <model />
+    <ua_platform version="12.5.0">macOS</ua_platform>
+    <fp>
+        <id ts="308">db9267bb13d655d69596a921bc018ac39ecfca95</id>
+        <canvas>b358b248aebb22365973be20b00c319eedd72b8c</canvas>
+        <canvas_geometry>29c6146b4cd23a1c37e0668f516215bd144c1a1b</canvas_geometry>
+        <audio>a4ae32c0370b5a08ba8b135f147eb8127a7264bf</audio>
+        <webgl>cbf2a6ea31e97d3f38f619c99e03db050a91bbd9</webgl>
+        <plugins>PDF Viewer,Chrome PDF Viewer,Chromium PDF Viewer,Microsoft Edge PDF Viewer,WebKit built-in PDF</plugins>
+        <appShare>0|0|0</appShare>
+        <maxTouchPoints>0</maxTouchPoints>
+        <addToHomeScreen>1|1</addToHomeScreen>
+        <usb>1</usb>
+        <serial>1</serial>
+        <textDetector>0</textDetector>
+        <barcodeDetector>1</barcodeDetector>
+        <faceDetector>0</faceDetector>
+        <imageCapture>1</imageCapture>
+        <vibrate>1</vibrate>
+        <xr>1</xr>
+        <eval>33</eval>
+        <battery>1</battery>
+        <contacts>0</contacts>
+        <deviceMemory>8</deviceMemory>
+        <timezone>Asia/Saigon|420</timezone>
+        <cpuCores>12</cpuCores>
+    </fp>
+    <user_agent>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36</user_agent>
+    <platform>MacIntel</platform>
+    <build>20030107</build>
+    <do_not_track />
+    <cpu_class />
+    <languages>en-US;-;-;-;en-US;vi;en</languages>
+    <screen>3584x2240x30</screen>
+    <orientation>w3c:landscape-primary</orientation>
+    <time_zone format="Asia/Saigon">420</time_zone>
+    <support>ws;ws-rfc;rtc;webkit-rtc;history;worker;shared-worker;blob</support>
+    <storage>110111</storage>
+    <extensions>Google Translate</extensions>
+    <adblock>0</adblock>
+    <adblockFilters />
+    <os description="">macOS</os>
+    <os_version>12.5.0</os_version>
+    <plugins nav="1">PDF Viewer::Portable Document Format::application/pdf~pdf,text/pdf~pdf;Chrome PDF Viewer::Portable Document Format::application/pdf~pdf,text/pdf~pdf;Chromium PDF Viewer::Portable Document Format::application/pdf~pdf,text/pdf~pdf;Microsoft Edge PDF Viewer::Portable Document Format::application/pdf~pdf,text/pdf~pdf;WebKit built-in PDF::Portable Document Format::application/pdf~pdf,text/pdf~pdf</plugins>
+    <plugins_js />
+    <canvas>b358b248aebb22365973be20b00c319eedd72b8c</canvas>
+    <canvas_geometry>29c6146b4cd23a1c37e0668f516215bd144c1a1b</canvas_geometry>
+    <fonts_js />
+    <local_ip>27.65.195.158</local_ip>
+    <private_mode>0</private_mode>
+    <mobile_conntype downlink="10" downlinkMax="" effectiveType="4g" rtt="50" saveData="false" type="" />
+    <webgl canvas="b882035ae368bd0086e015e8c3cab6344b5d2eb8" fp="200c5b61f1cc0b3fd18b1aacc4043a2e77251f20" vendor="Google Inc. (Intel Inc.)" renderer="ANGLE (Intel Inc., Intel(R) UHD Graphics 630, OpenGL 4.1)">{&quot;v&quot;:&quot;WebGL 1.0 (OpenGL ES 2.0 Chromium)&quot;,&quot;vd&quot;:&quot;WebKit&quot;,&quot;r&quot;:&quot;WebKit WebGL&quot;,&quot;slv&quot;:&quot;WebGL GLSL ES 1.0 (OpenGL ES GLSL ES 1.0 Chromium)&quot;,&quot;e&quot;:&quot;ANGLE_instanced_arrays,EXT_blend_minmax,EXT_color_buffer_half_float,EXT_disjoint_timer_query,EXT_float_blend,EXT_frag_depth,EXT_shader_texture_lod,EXT_texture_compression_rgtc,EXT_texture_filter_anisotropic,EXT_sRGB,KHR_parallel_shader_compile,OES_element_index_uint,OES_fbo_render_mipmap,OES_standard_derivatives,OES_texture_float,OES_texture_float_linear,OES_texture_half_float,OES_texture_half_float_linear,OES_vertex_array_object,WEBGL_color_buffer_float,WEBGL_compressed_texture_s3tc,WEBGL_compressed_texture_s3tc_srgb,WEBGL_debug_renderer_info,WEBGL_debug_shaders,WEBGL_depth_texture,WEBGL_draw_buffers,WEBGL_lose_context,WEBGL_multi_draw&quot;,&quot;a&quot;:16,&quot;mrbs&quot;:16384,&quot;mctiu&quot;:32,&quot;mcmts&quot;:16384,&quot;mtiu&quot;:16,&quot;mts&quot;:16384,&quot;mvv&quot;:15,&quot;mfuv&quot;:1024,&quot;mva&quot;:16,&quot;mvtiu&quot;:16,&quot;mvuv&quot;:1024,&quot;mvd&quot;:&quot;[16384, 16384]&quot;,&quot;alwr&quot;:&quot;[1, 1]&quot;,&quot;apsr&quot;:&quot;[1, 255.875]&quot;,&quot;atl&quot;:&quot;1&quot;,&quot;rgbads&quot;:[8,8,8,8,24,0],&quot;sdf_vf&quot;:[[23,127,127],[23,127,127],[23,127,127]],&quot;sdf_vi&quot;:[[0,31,30],[0,31,30],[0,31,30]],&quot;sdf_ff&quot;:[[23,127,127],[23,127,127],[23,127,127]],&quot;sdf_fi&quot;:[[0,31,30],[0,31,30],[0,31,30]]}</webgl>
+    <webrtcId>3178458519</webrtcId>
+    <audio>a4ae32c0370b5a08ba8b135f147eb8127a7264bf</audio>
+    <nav>
+        <appVersion wb="Chrome 108.0.0.0" os="OS X 10.15.7">5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36</appVersion>
+        <cookieEnabled>true</cookieEnabled>
+        <maxTouchPoints>0</maxTouchPoints>
+        <vendor>Google Inc.</vendor>
+        <touch>0</touch>
+        <oscpu />
+        <battery>
+            <charging>false</charging>
+            <chargingTime>Infinity</chargingTime>
+            <dischargingTime>3000</dischargingTime>
+            <level>0.32</level>
+        </battery>
+        <isBluetoothAvailable>true</isBluetoothAvailable>
+    </nav>
+    <error_tosource>0</error_tosource>
+    <active status="1111111111111" blur="0" blur_duration="" focus="0" visible="0" hidden="0" onStart="1" onSubmit="1">1</active>
+    <css>
+        <webkit_app_region_inherit>1</webkit_app_region_inherit>
+        <moz_appearance_inherit>0</moz_appearance_inherit>
+        <apple_pay_button_style_inherit>0</apple_pay_button_style_inherit>
+        <webkit_touch_callout_inherit>0</webkit_touch_callout_inherit>
+        <moz_osx_font_smoothing_inherit>0</moz_osx_font_smoothing_inherit>
+        <accent_color_inherit>1</accent_color_inherit>
+        <query>
+            <any_hover>hover</any_hover>
+            <hover>hover</hover>
+            <any_pointer>fine</any_pointer>
+            <pointer>fine</pointer>
+            <color>10</color>
+            <color_gamut>rec2020</color_gamut>
+            <forced_colors>none</forced_colors>
+            <monochrome>0</monochrome>
+            <prefers_color_scheme>dark</prefers_color_scheme>
+            <prefers_contrast>no-preference</prefers_contrast>
+            <prefers_reduced_motion>no-preference</prefers_reduced_motion>
+            <dynamic_range>high</dynamic_range>
+        </query>
+    </css>
+    <math>
+        <acos>1.4473588658278522</acos>
+        <acosh>709.889355822726</acosh>
+        <acoshPf>355.291251501643</acoshPf>
+        <asin>0.12343746096704435</asin>
+        <asinh>0.881373587019543</asinh>
+        <asinhPf>0.8813735870195429</asinhPf>
+        <atanh>0.5493061443340548</atanh>
+        <atanhPf>0.5493061443340548</atanhPf>
+        <atan>0.4636476090008061</atan>
+        <sin>0.8178819121159085</sin>
+        <sinh>1.1752011936438014</sinh>
+        <sinhPf>1.1752011936438014</sinhPf>
+        <cos>-0.8390715290095377</cos>
+        <cosh>1.5430806348152437</cosh>
+        <coshPf>1.5430806348152437</coshPf>
+        <tan>0.5086861259107568</tan>
+        <tanh>0.7615941559557649</tanh>
+        <tanhPf>0.7615941559557649</tanhPf>
+        <exp>2.718281828459045</exp>
+        <expm1>1.718281828459045</expm1>
+        <expm1Pf>1.718281828459045</expm1Pf>
+        <log1p>2.3978952727983707</log1p>
+        <log1pPf>2.3978952727983707</log1pPf>
+        <powPI>1.9275814160560204e-50</powPI>
+    </math>
+    <window>
+        <devicePixelRatio>2</devicePixelRatio>
+        <innerWidth>1780</innerWidth>
+        <innerHeight>885</innerHeight>
+        <isSecureContext>true</isSecureContext>
+        <history>
+            <length>1</length>
+            <scrollRestoration>auto</scrollRestoration>
+            <state />
+        </history>
+        <screen>
+            <width>1792</width>
+            <height>1120</height>
+            <availWidth>1792</availWidth>
+            <availHeight>1007</availHeight>
+            <availLeft>0</availLeft>
+            <availTop>25</availTop>
+            <colorDepth>30</colorDepth>
+            <pixelDepth>30</pixelDepth>
+            <orientation>w3c:landscape-primary</orientation>
+        </screen>
+        <screenLeft>12</screenLeft>
+        <screenTop>25</screenTop>
+        <screenX>12</screenX>
+        <screenY>25</screenY>
+        <scrollX>0</scrollX>
+        <scrollY>534</scrollY>
+    </window>
+    <storage_estimate>
+        <quota>299977904946</quota>
+        <usage>32074</usage>
+        <usageDetails>
+            <indexedDB>7498</indexedDB>
+        </usageDetails>
+    </storage_estimate>
+</browser_mark>
