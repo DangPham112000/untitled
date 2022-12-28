@@ -1,0 +1,12 @@
+iPadOS 10.15.6 - Safari 14.0.3
+iPadOS 12.5.4 - Safari 12.1.2
+iPadOS 10.15.4 - Safari 13.1.1
+OS X 10.15.7 - Safari 14.1.2
+OS X 10.14.6 - Safari 14.1.2
+OS X 10.11.6 - Safari 11.1.2
+iOS 14.2 - WebViewSafari 11.x
+iOS 12.2 - Safari 12.1
+iOS 14.7.1 - Safari 14.1.2
+iOS 14.6 - Chrome Mobile 92.0.4515.90
+iOS 14.7 - Chrome Mobile 92.0.4515.90
+

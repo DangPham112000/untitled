@@ -1,7 +1,7 @@
 <browser_mark>
     <uuid>DB914BB8-425E-4094-B53A-D55622014C29</uuid>
     <tabs>
-        <tab active="1" current="1">36713375-1666-4D0E-8ABC-2E03DE30723D</tab>
+        <tab active="1" current="1">D905B644-8676-4885-8136-491A99E9ECED</tab>
     </tabs>
     <architecture bit="64">x86</architecture>
     <brands>
@@ -13,7 +13,7 @@
     <model />
     <ua_platform version="12.5.0">macOS</ua_platform>
     <fp>
-        <id ts="308">db9267bb13d655d69596a921bc018ac39ecfca95</id>
+        <id ts="284">db9267bb13d655d69596a921bc018ac39ecfca95</id>
         <canvas>b358b248aebb22365973be20b00c319eedd72b8c</canvas>
         <canvas_geometry>29c6146b4cd23a1c37e0668f516215bd144c1a1b</canvas_geometry>
         <audio>a4ae32c0370b5a08ba8b135f147eb8127a7264bf</audio>
@@ -62,7 +62,7 @@
     <private_mode>0</private_mode>
     <mobile_conntype downlink="10" downlinkMax="" effectiveType="4g" rtt="50" saveData="false" type="" />
     <webgl canvas="b882035ae368bd0086e015e8c3cab6344b5d2eb8" fp="200c5b61f1cc0b3fd18b1aacc4043a2e77251f20" vendor="Google Inc. (Intel Inc.)" renderer="ANGLE (Intel Inc., Intel(R) UHD Graphics 630, OpenGL 4.1)">{&quot;v&quot;:&quot;WebGL 1.0 (OpenGL ES 2.0 Chromium)&quot;,&quot;vd&quot;:&quot;WebKit&quot;,&quot;r&quot;:&quot;WebKit WebGL&quot;,&quot;slv&quot;:&quot;WebGL GLSL ES 1.0 (OpenGL ES GLSL ES 1.0 Chromium)&quot;,&quot;e&quot;:&quot;ANGLE_instanced_arrays,EXT_blend_minmax,EXT_color_buffer_half_float,EXT_disjoint_timer_query,EXT_float_blend,EXT_frag_depth,EXT_shader_texture_lod,EXT_texture_compression_rgtc,EXT_texture_filter_anisotropic,EXT_sRGB,KHR_parallel_shader_compile,OES_element_index_uint,OES_fbo_render_mipmap,OES_standard_derivatives,OES_texture_float,OES_texture_float_linear,OES_texture_half_float,OES_texture_half_float_linear,OES_vertex_array_object,WEBGL_color_buffer_float,WEBGL_compressed_texture_s3tc,WEBGL_compressed_texture_s3tc_srgb,WEBGL_debug_renderer_info,WEBGL_debug_shaders,WEBGL_depth_texture,WEBGL_draw_buffers,WEBGL_lose_context,WEBGL_multi_draw&quot;,&quot;a&quot;:16,&quot;mrbs&quot;:16384,&quot;mctiu&quot;:32,&quot;mcmts&quot;:16384,&quot;mtiu&quot;:16,&quot;mts&quot;:16384,&quot;mvv&quot;:15,&quot;mfuv&quot;:1024,&quot;mva&quot;:16,&quot;mvtiu&quot;:16,&quot;mvuv&quot;:1024,&quot;mvd&quot;:&quot;[16384, 16384]&quot;,&quot;alwr&quot;:&quot;[1, 1]&quot;,&quot;apsr&quot;:&quot;[1, 255.875]&quot;,&quot;atl&quot;:&quot;1&quot;,&quot;rgbads&quot;:[8,8,8,8,24,0],&quot;sdf_vf&quot;:[[23,127,127],[23,127,127],[23,127,127]],&quot;sdf_vi&quot;:[[0,31,30],[0,31,30],[0,31,30]],&quot;sdf_ff&quot;:[[23,127,127],[23,127,127],[23,127,127]],&quot;sdf_fi&quot;:[[0,31,30],[0,31,30],[0,31,30]]}</webgl>
-    <webrtcId>3178458519</webrtcId>
+    <webrtcId>2075230035</webrtcId>
     <audio>a4ae32c0370b5a08ba8b135f147eb8127a7264bf</audio>
     <nav>
         <appVersion wb="Chrome 108.0.0.0" os="OS X 10.15.7">5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36</appVersion>
@@ -74,8 +74,8 @@
         <battery>
             <charging>false</charging>
             <chargingTime>Infinity</chargingTime>
-            <dischargingTime>3000</dischargingTime>
-            <level>0.32</level>
+            <dischargingTime>13380</dischargingTime>
+            <level>0.84</level>
         </battery>
         <isBluetoothAvailable>true</isBluetoothAvailable>
     </nav>
@@ -150,18 +150,18 @@
             <pixelDepth>30</pixelDepth>
             <orientation>w3c:landscape-primary</orientation>
         </screen>
-        <screenLeft>12</screenLeft>
-        <screenTop>25</screenTop>
-        <screenX>12</screenX>
-        <screenY>25</screenY>
+        <screenLeft>7</screenLeft>
+        <screenTop>35</screenTop>
+        <screenX>7</screenX>
+        <screenY>35</screenY>
         <scrollX>0</scrollX>
-        <scrollY>534</scrollY>
+        <scrollY>712</scrollY>
     </window>
     <storage_estimate>
         <quota>299977904946</quota>
-        <usage>32074</usage>
+        <usage>27870</usage>
         <usageDetails>
-            <indexedDB>7498</indexedDB>
+            <indexedDB>3294</indexedDB>
         </usageDetails>
     </storage_estimate>
 </browser_mark>

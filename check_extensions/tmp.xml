@@ -1,0 +1,29 @@
+<id ts="313">c75ed3a7cb624c9263206fca5e8a83a2ef8abfaa</id>
+
+<time_zone format="UTC">180</time_zone>
+
+
+<canvas>1e916642e09e69f8506d77eca97e5c4c7f16af3b</canvas>
+
+
+
+
+<canvas_geometry>095986477dd1857a51a273cba0a8534fefd7a89f</canvas_geometry>
+
+<local_ip />
+
+<webgl canvas="103ae032b1ca44c2c5650c84ee600351dd6866ce" fp="d460a6b132012ff7f591e6769a7f68f1bd2f4ba3" vendor="236" renderer="236">{&quot;v&quot;:236,&quot;vd&quot;:236,&quot;r&quot;:236,&quot;slv&quot;:236,&quot;e&quot;:&quot;ANGLE_instanced_arrays,EXT_blend_minmax,EXT_color_buffer_half_float,EXT_disjoint_timer_query,EXT_float_blend,EXT_frag_depth,EXT_shader_texture_lod,EXT_texture_compression_rgtc,EXT_texture_filter_anisotropic,EXT_sRGB,KHR_parallel_shader_compile,OES_element_index_uint,OES_fbo_render_mipmap,OES_standard_derivatives,OES_texture_float,OES_texture_float_linear,OES_texture_half_float,OES_texture_half_float_linear,OES_vertex_array_object,WEBGL_color_buffer_float,WEBGL_compressed_texture_s3tc,WEBGL_compressed_texture_s3tc_srgb,WEBGL_debug_renderer_info,WEBGL_debug_shaders,WEBGL_depth_texture,WEBGL_draw_buffers,WEBGL_lose_context,WEBGL_multi_draw&quot;,&quot;a&quot;:236,&quot;mrbs&quot;:236,&quot;mctiu&quot;:236,&quot;mcmts&quot;:236,&quot;mtiu&quot;:236,&quot;mts&quot;:236,&quot;mvv&quot;:236,&quot;mfuv&quot;:236,&quot;mva&quot;:236,&quot;mvtiu&quot;:236,&quot;mvuv&quot;:236,&quot;mvd&quot;:&quot;[undefined, undefined]&quot;,&quot;alwr&quot;:&quot;[undefined, undefined]&quot;,&quot;apsr&quot;:&quot;[undefined, undefined]&quot;,&quot;atl&quot;:&quot;1&quot;,&quot;rgbads&quot;:[236,236,236,236,236,236],&quot;sdf_vf&quot;:[[23,127,127],[23,127,127],[23,127,127]],&quot;sdf_vi&quot;:[[0,31,30],[0,31,30],[0,31,30]],&quot;sdf_ff&quot;:[[23,127,127],[23,127,127],[23,127,127]],&quot;sdf_fi&quot;:[[0,31,30],[0,31,30],[0,31,30]]}</webgl>
+<webrtcId />
+<audio>545c6c277ea461d915774425fc82c63164199405</audio>
+
+
+<innerWidth>1022</innerWidth>
+
+
+
+<usage>32406</usage>
+
+
+
+
+<indexedDB>7830</indexedDB>
