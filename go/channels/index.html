@@ -14,8 +14,8 @@
             for (var i = 0; i < 10; i++) {
                 (async () => {
                     await new Promise(r => setTimeout(r, 5000));
-                    concurrentFunc()
-                })(i)
+                    concurrentFunc(i)
+                })()
             }
         }
 
