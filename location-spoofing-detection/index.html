@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="./style.css" />
+        <title>Location Spoofing Detection</title>
+    </head>
+
+    <body>
+        <button class="btn-76" onclick="test()">
+            Request
+            <span class="top"></span>
+            <span class="right"></span>
+            <span class="bottom"></span>
+            <span class="left"></span>
+        </button>
+        <div id="log"></div>
+        <script type="text/javascript">
+            function log(e) {
+                document.getElementById("log").innerHTML += e + "</br>";
+            }
+
+            function test() {
+                spoofingDetection.detect(function (spoofed, description) {
+                    log(`[${spoofed}] ${description}`);
+                });
+            }
+
+            /*
+    Returns
+        * spoofed
+            1: spoofed for sure
+            empty: not sure if spoofed or not
+        * description
+
+    Logics
+    - Not chromium nor firefox
+        {spoofed: '', 'Browser is not supported'}
+    - No permission API
+        {spoofed: '', 'Can not detect because browser does not support permission API'}
+    - Permission prompt
+        {spoofed: '', 'Can not detect due to permission status'}
+    - Permission granted
+        Geolocate 12 times with
+            - timeout: 10ms
+            - maximumAge: 0 (on chromium) / 1 (firefox)
+        Spoofing check
+            - chromium: gt 80% res time < 10
+            - firefox: gt 50% res time < 2 AND lt 30% res time > 3
+
+    */
+            var spoofingDetection = (function () {
+                var hasPermissionAPI = "permissions" in navigator,
+                    isFirefox =
+                        navigator.userAgent.toLowerCase().indexOf("firefox") >
+                        -1,
+                    isChromium = !!window.chrome,
+                    isSupportedBrowser = isChromium || isFirefox;
+                var TIMEOUT = isFirefox ? 5 : 10,
+                    MAX_AGE = isFirefox ? 1 : 0,
+                    LIMIT = 25;
+                var count = 0;
+                var duration = [];
+                var timeoutCount = 0,
+                    deniedCount = 0;
+
+                function getPem(cb) {
+                    if (hasPermissionAPI) {
+                        navigator.permissions
+                            .query({ name: "geolocation" })
+                            .then(function (e) {
+                                var granted = e.state === "granted",
+                                    denied = e.state === "denied",
+                                    prompt = e.state === "prompt";
+                                cb(granted, denied, prompt);
+                            });
+                    } else {
+                        cb();
+                    }
+                }
+
+                function getLocation(done) {
+                    navigator.geolocation.getCurrentPosition(
+                        function (e) {
+                            console.log(
+                                "===>> ok ",
+                                e.coords.latitude,
+                                e.coords.longitude,
+                                e.coords.accuracy
+                            );
+                            done();
+                        },
+                        function (err) {
+                            console.log("===>> err ", err);
+                            if (err.code === err.TIMEOUT) {
+                                timeoutCount++;
+                            } else if (err.code === err.PERMISSION_DENIED) {
+                                deniedCount++;
+                            }
+                            done();
+                        },
+                        {
+                            enableHighAccuracy: true,
+                            timeout: TIMEOUT,
+                            maximumAge: MAX_AGE,
+                        }
+                    );
+                }
+
+                function detect(cb) {
+                    timeoutCount = 0;
+                    deniedCount = 0;
+                    if (!isSupportedBrowser) {
+                        return cb("", "Browser is not supported");
+                    }
+                    if (!hasPermissionAPI) {
+                        return cb(
+                            "",
+                            "Can not detect because browser does not support permission API"
+                        );
+                    }
+                    count = 0;
+                    duration = [];
+                    check(cb);
+                }
+
+                function check(cb) {
+                    var start = +new Date();
+                    console.log(`${count} ${start}`);
+                    getLocation(function () {
+                        if (count < LIMIT) {
+                            count++;
+                            getPem(function (granted, denied, prompt) {
+                                if (isFirefox && !granted) {
+                                    return cb(
+                                        "",
+                                        "Can not detect due to permission status"
+                                    );
+                                } else {
+                                    duration.push(new Date() - start);
+                                    setTimeout(function () {
+                                        check(cb);
+                                    }, 0);
+                                }
+                            });
+                        } else {
+                            var durationStr = duration.join(
+                                "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+                            );
+                            if (isChromium) {
+                                var matches = duration.filter(
+                                        (x) => x < TIMEOUT
+                                    ).length,
+                                    suspiciousSpeed = matches / LIMIT > 0.8,
+                                    spoofed =
+                                        (suspiciousSpeed ||
+                                            timeoutCount === 0) &&
+                                        deniedCount < LIMIT;
+                                return cb(
+                                    spoofed ? 1 : "",
+                                    `${durationStr} &nbsp;&nbsp;&nbsp;&nbsp; ==> ${matches} of ${duration.length} matched & timeout = ${timeoutCount} & denied = ${deniedCount} ==> spoofed =  ${spoofed}`
+                                );
+                            }
+                            var fast = duration.filter((x) => x < 2).length,
+                                slow = duration.filter((x) => x > 3).length,
+                                suspiciousSpeed =
+                                    fast / LIMIT > 0.5 && slow / LIMIT < 0.3,
+                                spoofed =
+                                    (suspiciousSpeed || timeoutCount === 0) &&
+                                    deniedCount < LIMIT;
+                            return cb(
+                                spoofed ? 1 : "",
+                                `${durationStr} &nbsp;&nbsp;&nbsp;&nbsp; ==> ${fast} fast and ${slow} slow of ${duration.length} matched and timeout = ${timeoutCount} & denied = ${deniedCount} ==> spoofed =  ${spoofed}`
+                            );
+                        }
+                    });
+                }
+
+                return {
+                    detect: detect,
+                };
+            })();
+        </script>
+        <!-- Code injected by live-server -->
+        <script>
+            // <![CDATA[  <-- For SVG support
+            if ("WebSocket" in window) {
+                (function () {
+                    function refreshCSS() {
+                        var sheets = [].slice.call(
+                            document.getElementsByTagName("link")
+                        );
+                        var head = document.getElementsByTagName("head")[0];
+                        for (var i = 0; i < sheets.length; ++i) {
+                            var elem = sheets[i];
+                            var parent = elem.parentElement || head;
+                            parent.removeChild(elem);
+                            var rel = elem.rel;
+                            if (
+                                (elem.href && typeof rel != "string") ||
+                                rel.length == 0 ||
+                                rel.toLowerCase() == "stylesheet"
+                            ) {
+                                var url = elem.href.replace(
+                                    /(&|\?)_cacheOverride=\d+/,
+                                    ""
+                                );
+                                elem.href =
+                                    url +
+                                    (url.indexOf("?") >= 0 ? "&" : "?") +
+                                    "_cacheOverride=" +
+                                    new Date().valueOf();
+                            }
+                            parent.appendChild(elem);
+                        }
+                    }
+                    var protocol =
+                        window.location.protocol === "http:"
+                            ? "ws://"
+                            : "wss://";
+                    var address =
+                        protocol +
+                        window.location.host +
+                        window.location.pathname +
+                        "/ws";
+                    var socket = new WebSocket(address);
+                    socket.onmessage = function (msg) {
+                        if (msg.data == "reload") window.location.reload();
+                        else if (msg.data == "refreshcss") refreshCSS();
+                    };
+                    if (
+                        sessionStorage &&
+                        !sessionStorage.getItem(
+                            "IsThisFirstTime_Log_From_LiveServer"
+                        )
+                    ) {
+                        console.log("Live reload enabled.");
+                        sessionStorage.setItem(
+                            "IsThisFirstTime_Log_From_LiveServer",
+                            true
+                        );
+                    }
+                })();
+            } else {
+                console.error(
+                    "Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading."
+                );
+            }
+            // ]]>
+        </script>
+    </body>
+</html>
