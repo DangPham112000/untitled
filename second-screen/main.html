@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        eyJleHBpcmVzIjoxNjcyOTc1NjYzLCJha2V5IjoiU29sdXNUZXN0aW5nIiwiaG9zdCI6eyJ0aW1lb3V0IjoiMTAiLCJ1cmwiOiJodHRwczpcL1wvcWF0LWxhdGVzdC1lcy5nZW9jb21wbHkubmV0XC9jb25maWd1cmF0aW9uIn0sImF1dGgiOiJxYzFtaW5zZmRHYU90bUZ5Y1RoYTNhRHczdnZcL1l0NUNZT2ZRTTYrcXVMd0RZbHpKSnFxYVwvY3E4eENcLzNtV1ptRDB3ZUl1a3A0ZVJQeEJTZVd2SlZJMWJLMHZHUFdEdDRac2k1SDFJeHFKT0RFQmFQaFpZZzlLclwvSEJoVWNVUWNIQjA2bXVYZ1ZjUmpFNURqa1RXWUxCOHZZWGxDZytPQ085a0ZyV3NtVTN0ZmM3ZmNWYys4XC9zRkFBNDVUdjlZazhRWjNjY1p6NmFNenhsYUZQUkVkUTNQR3cwelBWdm9nNlE5UW45MUkwS2pjWDV4dzA1TW9UMm1KcnlaaWlcL3h5ZSt0b1lxTm1xUmlzUUZkWm5KQWpsNkM1UUNORURvd2xLUUcwUXlwS1BITW1MSEVKRkhidUVTRkRiV0tpRWlRU29seEdUU0pNWCttSDlwQlVaSmRTQjNJeEk3U0MyOXd1NWdaVSsxOTRJQlF5OU9kVTV0NVN6bDhEeFR4TnNEZkltU1FaTkNNZlJ3QVlTanExdGczc3NDOWdiNTE0a0YzQTdmTEZpUjNBdk5KZTZPS2FVVFwvcERaRXBtRkNuQlY1aUVVMloxT1l0TnBKdVQxbm80a01pRUZPMG9LSUp1K1VsRXBHaWUwZUNQdkV6TU5UWFR5eUlveGRCQjh1QWlxQkRaYlFtODlEcGZnVCtFNVgwU2prQlVTWXpPaWNmWFhXc3B0VEEyaEtXXC9SMTJaMmZXelRkRXpueWNpZjlnV0pVYUFRTGkxaW1uN1p3bWcyeXg5XC9tT1wvVWc0Q09VK3lZWHR2QUMwWFR6eDJLeGRueEoxUHVXYU5KSzlJZVBpRXpicEUxc0pLMHRmclZsejY1WmVXOURQOUpwc1ViMjN2ZDVUNXB0MFkrZlBvSVF6Mm1ZdHNrQVZJWERjaHNrUkpTZENNNDNJT3l0eVhRSUxNc2ZTOXB0dGN1Nk5ZS05mS0RyWmJwY0V4eGhDXC84aFRIQzRyMzQ3R3FYVEoyOUZoVURTdXZQZnBxYXNDMk1xS2gyeittRUJTdUE9PSIsImxvZ19lbmRwb2ludCI6Imh0dHBzOlwvXC9sb2dnZXIuZ2VvY29tcGx5Lm5ldFwvbG9ncyIsImFjY2Vzc19zZXJ2aWNlIjp7InVybCI6Imh0dHBzOlwvXC9lcy5nZW9jb21wbHkuY29tXC9hY2Nlc3MlM0NcL2FjY2Vzc191cmwiLCJob3N0X3RpbWVvdXQiOiI1IiwicmV0cmllcyI6IjIifX0
+    </body>
+    <script>
+        function getOrientation() {
+            var orientation, result, type;
+            orientation = screen.orientation || screen.mozOrientation || screen.msOrientation;
+            type = screen.orientation ? 'w3c' : screen.mozOrientation ? 'moz' : screen.msOrientation ? 'ms' : '';
+            result = [type];
+            if (typeof orientation === 'string') {
+                result.push(orientation);
+            } else if (typeof orientation === 'object' && orientation.type) {
+                result.push(orientation.type);
+            }
+            return result.join(':');
+        }
+        var windowww = {
+            devicePixelRatio: window.devicePixelRatio,
+            innerWidth: window.innerWidth,
+            innerHeight: window.innerHeight,
+            isSecureContext: window.isSecureContext,
+            history: {
+                length: window.history.length,
+                scrollRestoration: window.history.scrollRestoration,
+                state: window.history.state ? window.history.state.key : ''
+            },
+            screen: {
+                width: screen.width,
+                height: screen.height,
+                availWidth: screen.availWidth,
+                availHeight: screen.availHeight,
+                availLeft: screen.availLeft,
+                availTop: screen.availTop,
+                colorDepth: screen.colorDepth,
+                pixelDepth: screen.pixelDepth,
+                orientation: getOrientation()
+            },
+            screenLeft: window.screenLeft,
+            screenTop: window.screenTop,
+            screenX: window.screenX,
+            screenY: window.screenY,
+            scrollX: window.scrollX,
+            scrollY: window.scrollY
+        };
+        console.log(windowww)
+        // setInterval(() => {
+        // }, 1000);
+    </script>
+</html>
