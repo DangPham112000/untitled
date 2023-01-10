@@ -14,10 +14,8 @@
         function check() {
             var screenInfo = getScreenInfo();
             var isSecondScreen =
-                screenInfo.width - screenInfo.availWidth <
-                    Math.abs(screenInfo.availLeft) ||
-                screenInfo.height - screenInfo.availHeight <
-                    Math.abs(screenInfo.availTop);
+                screen.width - screen.availWidth < Math.abs(screen.availLeft) ||
+                screen.height - screen.availHeight < Math.abs(screen.availTop);
             var container = document.getElementById("screens");
             var screenInfoEle = document.createElement("div");
             var infoHtml = isSecondScreen + JSON.stringify(screenInfo);
