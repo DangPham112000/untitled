@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <button onclick="check()"><h2>Check screen</h2></button>
+        <div id="screens"></div>
+    </body>
+    <script>
+        function check() {
+            var screenInfo = getScreenInfo();
+            var isSecondScreen =
+                screenInfo.width - screenInfo.availWidth <
+                    Math.abs(screenInfo.availLeft) ||
+                screenInfo.height - screenInfo.availHeight <
+                    Math.abs(screenInfo.availTop);
+            var container = document.getElementById("screens");
+            var screenInfoEle = document.createElement("div");
+            var infoHtml = isSecondScreen + JSON.stringify(screenInfo);
+            screenInfoEle.innerHTML = infoHtml;
+            container.appendChild(screenInfoEle);
+        }
+        function getScreenInfo() {
+            return {
+                width: screen.width,
+                height: screen.height,
+                availWidth: screen.availWidth,
+                availHeight: screen.availHeight,
+                availLeft: screen.availLeft,
+                availTop: screen.availTop,
+            };
+        }
+    </script>
+</html>
