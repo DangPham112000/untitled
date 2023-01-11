@@ -16,8 +16,15 @@
     </head>
 
     <body>
-        <button class="btn-76" onclick="test()">
+        <button class="btn-76" onclick="go()">
             Request
+            <span class="top"></span>
+            <span class="right"></span>
+            <span class="bottom"></span>
+            <span class="left"></span>
+        </button>
+        <button class="btn-76" onclick="stop()">
+            Stop
             <span class="top"></span>
             <span class="right"></span>
             <span class="bottom"></span>
@@ -25,6 +32,24 @@
         </button>
         <div id="log"></div>
         <script type="text/javascript">
+            var intervalId = null;
+            function go() {
+                var varCounter = 0;
+                var varName = function () {
+                    if (varCounter <= 999) {
+                        varCounter++;
+                        test();
+                    } else {
+                        clearInterval(intervalId);
+                    }
+                };
+                intervalId = setInterval(varName, 700);
+            }
+
+            function stop() {
+                clearInterval(intervalId);
+            }
+
             function log(e) {
                 document.getElementById("log").innerHTML += e + "</br>";
             }
