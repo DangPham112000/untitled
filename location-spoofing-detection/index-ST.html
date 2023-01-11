@@ -1,4 +1,4 @@
-<!-- Dang Pham -->
+<!-- Sinh Tran -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -60,14 +60,33 @@
     */
             var spoofingDetection = (function () {
                 var hasPermissionAPI = "permissions" in navigator,
-                    isChromium = !!window.chrome;
-                var TIMEOUT = 10,
-                    MAX_AGE = 0,
+                    isFirefox =
+                        navigator.userAgent.toLowerCase().indexOf("firefox") >
+                        -1,
+                    isChromium = !!window.chrome,
+                    isSupportedBrowser = isChromium || isFirefox;
+                var TIMEOUT = isFirefox ? 5 : 10,
+                    MAX_AGE = isFirefox ? 1 : 0,
                     LIMIT = 25;
                 var count = 0;
                 var duration = [];
                 var timeoutCount = 0,
                     deniedCount = 0;
+
+                function getPem(cb) {
+                    if (hasPermissionAPI) {
+                        navigator.permissions
+                            .query({ name: "geolocation" })
+                            .then(function (e) {
+                                var granted = e.state === "granted",
+                                    denied = e.state === "denied",
+                                    prompt = e.state === "prompt";
+                                cb(granted, denied, prompt);
+                            });
+                    } else {
+                        cb();
+                    }
+                }
 
                 function getLocation(done) {
                     navigator.geolocation.getCurrentPosition(
@@ -100,7 +119,7 @@
                 function detect(cb) {
                     timeoutCount = 0;
                     deniedCount = 0;
-                    if (!isChromium) {
+                    if (!isSupportedBrowser) {
                         return cb("", "Browser is not supported");
                     }
                     if (!hasPermissionAPI) {
@@ -117,38 +136,60 @@
                 function check(cb) {
                     var start = +new Date();
                     console.log(`${count} ${start}`);
-                    if (count < LIMIT) {
-                        getLocation(function () {
+                    getLocation(function () {
+                        if (count < LIMIT) {
                             count++;
-                            duration.push(new Date() - start);
-                            setTimeout(function () {
-                                check(cb);
-                            }, 0);
-                        });
-                    } else {
-                        var totalTime = 0;
-                        for (var i = 0; i < duration.length; i++) {
-                            totalTime += duration[i];
+                            getPem(function (granted, denied, prompt) {
+                                if (isFirefox && prompt) {
+                                    return cb(
+                                        "",
+                                        "Can not detect due to permission status"
+                                    );
+                                } else {
+                                    duration.push(new Date() - start);
+                                    setTimeout(function () {
+                                        check(cb);
+                                    }, 0);
+                                }
+                            });
+                        } else {
+                            var totalTime = 0;
+                            for (var i = 0; i < duration.length; i++) {
+                                totalTime += duration[i];
+                            }
+                            var durationStr = duration.join(
+                                "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+                            );
+                            if (isChromium) {
+                                var matches = duration.filter(
+                                        (x) => x < TIMEOUT
+                                    ).length,
+                                    tooFast = matches / LIMIT > 0.8,
+                                    spoofed =
+                                        (tooFast || timeoutCount === 0) &&
+                                        deniedCount < LIMIT;
+                                //chrome + ethernet cable
+                                if (spoofed && totalTime > LIMIT * 1.5) {
+                                    spoofed = false;
+                                }
+                                return cb(
+                                    spoofed ? 1 : "",
+                                    `${durationStr} &nbsp;&nbsp;&nbsp;&nbsp; ==> ${matches} of ${duration.length} matched & timeout = ${timeoutCount} & denied = ${deniedCount} & duration = ${totalTime} ==> spoofed =  ${spoofed}`
+                                );
+                            }
+                            var fast = duration.filter((x) => x < 2).length,
+                                slow = duration.filter((x) => x > 3).length,
+                                tooFast =
+                                    fast / LIMIT > 0.5 && slow / LIMIT < 0.3,
+                                spoofed =
+                                    (tooFast || timeoutCount === 0) &&
+                                    deniedCount < LIMIT;
+                            return cb(
+                                spoofed ? 1 : "",
+                                `${durationStr} &nbsp;&nbsp;&nbsp;&nbsp; ==> ${fast} fast and ${slow} slow of ${duration.length} matched and timeout = ${timeoutCount} & denied = ${deniedCount} & duration = ${totalTime} ==> spoofed =  ${spoofed}`
+                            );
                         }
-                        var durationStr = duration.join(
-                            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-                        );
-                        var matches = duration.filter(
-                                (x) => x < TIMEOUT
-                            ).length,
-                            tooFast = matches / LIMIT > 0.8,
-                            spoofed =
-                                (tooFast || timeoutCount === 0) &&
-                                deniedCount < LIMIT;
-                        //chrome + ethernet cable
-                        if (spoofed && totalTime > LIMIT * 1.5) {
-                            spoofed = false;
-                        }
-                        return cb(
-                            spoofed ? 1 : "",
-                            `${durationStr} &nbsp;&nbsp;&nbsp;&nbsp; ==> ${matches} of ${duration.length} matched & timeout = ${timeoutCount} & denied = ${deniedCount} & duration = ${totalTime} ==> spoofed =  ${spoofed}`
-                        );
-                    }
+                    });
                 }
 
                 return {
